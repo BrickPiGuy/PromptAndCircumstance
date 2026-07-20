@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompting Essentials | Interactive Presentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
+
+    <header class="deck-header">
+      <div class="brand">
+        <span class="brand-dot"></span>
+        <span class="brand-text">Prompting Essentials</span>
+      </div>
+      <div class="header-meta">
+        <span id="slideCounter">1 / 15</span>
+        <button id="fullscreenBtn" class="ghost-btn" type="button">Fullscreen</button>
+      </div>
+    </header>
+
+    <main class="deck" id="deck" aria-live="polite">
+      <section class="slide active" data-title="Welcome">
+        <p class="eyebrow">Interactive Workshop</p>
+        <h1>How to Talk to AI So It Can Help You Better</h1>
+        <p class="lead">Prompting Essentials for beginners, with live demos and hands-on practice.</p>
+        <div class="pill-row">
+          <span class="pill">Audience: AI Beginners</span>
+          <span class="pill">Length: 60-90 min</span>
+          <span class="pill">Style: Demo + Activity</span>
+        </div>
+      </section>
+
+      <section class="slide" data-title="AI Collective Flyer">
+        <p class="eyebrow">Community Spotlight</p>
+        <h2>AI Collective: Prompting Essentials Flyer</h2>
+        <p class="lead">Use this visual during intros, promotion, or event context before the workshop starts.</p>
+        <figure class="flyer-frame">
+          <img
+            src="ChatGPT Image Jul 20, 2026, 08_34_47 AM.png"
+            alt="AI Collective Prompting Essentials event flyer"
+          />
+        </figure>
+      </section>
+
+      <section class="slide" data-title="Outcomes">
+        <h2>Learning Outcomes</h2>
+        <ul class="checklist">
+          <li>Explain what a prompt is and why prompting matters.</li>
+          <li>Write clear prompts that get stronger outputs.</li>
+          <li>Improve weak prompts through iteration.</li>
+          <li>Recognize common prompting mistakes.</li>
+          <li>Apply prompting techniques across school, work, and coding.</li>
+          <li>Use human judgment when AI is uncertain or wrong.</li>
+        </ul>
+        <p class="micro-note">Tip: Use arrows, spacebar, or on-screen controls to navigate.</p>
+      </section>
+
+      <section class="slide" data-title="Icebreaker">
+        <h2>Icebreaker: You Have Been Prompting Longer Than You Think</h2>
+        <div class="split two">
+          <article class="card danger">
+            <h3>Bad Prompt</h3>
+            <p>Write something about cybersecurity.</p>
+          </article>
+          <article class="card success">
+            <h3>Good Prompt</h3>
+            <p>
+              Explain phishing to a first-year college student using a real-world example in less than
+              200 words.
+            </p>
+          </article>
+        </div>
+        <blockquote>Imagine your GPS simply said: "Drive somewhere."</blockquote>
+        <p class="micro-note">Ask: Which prompt will produce a better answer, and why?</p>
+      </section>
+
+      <section class="slide" data-title="What Is A Prompt">
+        <h2>What Is a Prompt?</h2>
+        <p class="lead">A prompt is an instruction that shapes what AI returns.</p>
+        <div class="chip-cloud">
+          <span>Google query</span>
+          <span>Voice assistant command</span>
+          <span>YouTube search</span>
+          <span>Chat assistant request</span>
+        </div>
+        <div class="card neutral">
+          <p>AI is like a very knowledgeable intern: it only works with what you ask for.</p>
+          <p>Better instructions -> better outputs.</p>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Why It Matters">
+        <h2>Why Prompting Matters</h2>
+        <div class="split two">
+          <article class="card">
+            <h3>Prompt 1</h3>
+            <p>Tell me about databases.</p>
+            <p class="muted">Result: Generic and broad.</p>
+          </article>
+          <article class="card">
+            <h3>Prompt 2</h3>
+            <p>
+              Explain relational databases to first-year software development students using one analogy
+              and one real-world example.
+            </p>
+            <p class="muted">Result: Contextual, useful, teachable.</p>
+          </article>
+        </div>
+        <p class="highlight">Prompt quality directly influences response quality.</p>
+      </section>
+
+      <section class="slide" data-title="T-A-S-K-S">
+        <h2>Anatomy of a Great Prompt: T-A-S-K-S</h2>
+        <div class="tasks-grid">
+          <article class="task-card">
+            <h3>T</h3>
+            <h4>Task</h4>
+            <p>Explain, compare, summarize, generate, analyze.</p>
+          </article>
+          <article class="task-card">
+            <h3>A</h3>
+            <h4>Audience</h4>
+            <p>Executive, student, child, customer, developer.</p>
+          </article>
+          <article class="task-card">
+            <h3>S</h3>
+            <h4>Specific Context</h4>
+            <p>Give situation and background details.</p>
+          </article>
+          <article class="task-card">
+            <h3>K</h3>
+            <h4>Keep It Structured</h4>
+            <p>Bullets, table, JSON, markdown, outline.</p>
+          </article>
+          <article class="task-card">
+            <h3>S</h3>
+            <h4>Success Criteria</h4>
+            <p>Length, tone, examples, limits, quality goals.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Exercise 1">
+        <h2>Interactive Exercise #1: Prompt Rewriter</h2>
+        <p>Improve this weak prompt:</p>
+        <p class="prompt-inline">"Make a presentation."</p>
+        <div class="lab">
+          <label for="promptInput">Your improved prompt</label>
+          <textarea id="promptInput" rows="5" placeholder="Write your improved prompt here..."></textarea>
+          <button id="scorePromptBtn" type="button">Evaluate With T-A-S-K-S</button>
+        </div>
+        <div id="scoreBoard" class="scoreboard" aria-live="polite"></div>
+      </section>
+
+      <section class="slide" data-title="Makeover Game">
+        <h2>Prompt Makeover Game</h2>
+        <p class="micro-note">Use Next to progressively reveal stronger versions.</p>
+        <div class="reveal-stack">
+          <article class="card reveal-item is-visible">
+            <h3>Version 1</h3>
+            <p>Create a presentation on phishing.</p>
+          </article>
+          <article class="card reveal-item">
+            <h3>Version 2</h3>
+            <p>Create a 10-slide presentation explaining phishing attacks to first-year cybersecurity students.</p>
+          </article>
+          <article class="card reveal-item">
+            <h3>Version 3</h3>
+            <p>
+              Create a 10-slide presentation explaining phishing attacks to first-year cybersecurity students.
+              Include one interactive activity, one case study, speaker notes, and a quiz.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Iteration">
+        <h2>The Power of Iteration</h2>
+        <div class="flow">
+          <span>Prompt</span>
+          <span>Response</span>
+          <span>Refine</span>
+          <span>Improve</span>
+          <span>Finalize</span>
+        </div>
+        <div class="chip-cloud">
+          <span>Shorter</span>
+          <span>More formal</span>
+          <span>More examples</span>
+          <span>Simpler language</span>
+          <span>Different audience</span>
+          <span>Add citations</span>
+        </div>
+        <p class="highlight">Prompting is a conversation, not a one-shot command.</p>
+      </section>
+
+      <section class="slide" data-title="Five Patterns">
+        <h2>Five Prompt Patterns Everyone Should Know</h2>
+        <div class="pattern-grid">
+          <article class="card"><h3>Explain</h3><p>Explain recursion using a pizza analogy.</p></article>
+          <article class="card"><h3>Summarize</h3><p>Summarize this article in five bullet points.</p></article>
+          <article class="card"><h3>Role Prompting</h3><p>Act as a hiring manager.</p></article>
+          <article class="card"><h3>Transformation</h3><p>Rewrite this email professionally.</p></article>
+          <article class="card"><h3>Brainstorm</h3><p>Generate ten project ideas for beginner programmers.</p></article>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Common Mistakes">
+        <h2>Common Prompting Mistakes: Spot the Problem</h2>
+        <div class="mistakes-grid">
+          <article class="mistake-card" data-answer="Too vague. No task, audience, or context.">
+            <p>"Help me."</p>
+            <button type="button" class="reveal-answer-btn">Reveal Problem</button>
+            <p class="answer"></p>
+          </article>
+          <article class="mistake-card" data-answer="Too broad for one response. Narrow the scope.">
+            <p>"Teach me programming."</p>
+            <button type="button" class="reveal-answer-btn">Reveal Problem</button>
+            <p class="answer"></p>
+          </article>
+          <article class="mistake-card" data-answer="Missing constraints. Define length, format, and tone.">
+            <p>"Write an email to my class."</p>
+            <button type="button" class="reveal-answer-btn">Reveal Problem</button>
+            <p class="answer"></p>
+          </article>
+          <article class="mistake-card" data-answer="Too many goals at once. Split into steps.">
+            <p>"Explain cloud, code an app, and make slides in one response."</p>
+            <button type="button" class="reveal-answer-btn">Reveal Problem</button>
+            <p class="answer"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Limitations">
+        <h2>AI Is Powerful, But Not Perfect</h2>
+        <div class="split two">
+          <ul>
+            <li>Hallucinations</li>
+            <li>Bias</li>
+            <li>Potentially outdated information</li>
+            <li>Overconfident phrasing</li>
+            <li>Privacy concerns</li>
+          </ul>
+          <article class="card warning">
+            <h3>Golden Rule</h3>
+            <p>Verify before you trust.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="slide" data-title="Everyday Uses">
+        <h2>Everyday Prompting + Prompt Olympics</h2>
+        <div class="domain-grid">
+          <p><strong>Students:</strong> study guides, quiz generation</p>
+          <p><strong>Faculty:</strong> rubrics, feedback drafts</p>
+          <p><strong>Business:</strong> emails, reports</p>
+          <p><strong>Software:</strong> docs, debugging, tests</p>
+          <p><strong>Cybersecurity:</strong> logs, incident summaries</p>
+          <p><strong>Marketing:</strong> campaign ideas, posts</p>
+        </div>
+        <p class="micro-note">Challenge: teams have 3 minutes to write the best prompt for a scenario.</p>
+      </section>
+
+      <section class="slide" data-title="Cheat Sheet">
+        <h2>Cheat Sheet + Closing Challenge</h2>
+        <div class="split two">
+          <article class="card">
+            <h3>Remember T-A-S-K-S</h3>
+            <ul>
+              <li>Task</li>
+              <li>Audience</li>
+              <li>Specific context</li>
+              <li>Keep it structured</li>
+              <li>Success criteria</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Take-Home Templates</h3>
+            <ol>
+              <li>Explain</li>
+              <li>Create</li>
+              <li>Improve</li>
+              <li>Compare</li>
+              <li>Iterate</li>
+            </ol>
+          </article>
+        </div>
+        <blockquote>Closing activity: "How would you improve this prompt?" -> "Tell me about AI."</blockquote>
+      </section>
+    </main>
+
+    <footer class="controls" aria-label="Slide controls">
+      <button id="prevBtn" type="button">Prev</button>
+      <div class="progress-wrap" aria-hidden="true">
+        <div id="progressBar"></div>
+      </div>
+      <button id="nextBtn" type="button">Next</button>
+    </footer>
+
+    <a
+      class="flyer-badge"
+      href="ChatGPT Image Jul 20, 2026, 08_34_47 AM.png"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Open AI Collective flyer"
+    >
+      <span class="flyer-badge-label">AI Collective</span>
+      <strong>View Flyer</strong>
+    </a>
+
+    <nav id="dotNav" class="dot-nav" aria-label="Slide navigation"></nav>
+
+    <script src="script.js"></script>
+  </body>
+</html>
