@@ -5,9 +5,13 @@ const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 const dotNav = document.getElementById('dotNav');
 const fullscreenBtn = document.getElementById('fullscreenBtn');
+const overviewOverlay = document.getElementById('overviewOverlay');
+const overviewList = document.getElementById('overviewList');
+const overviewCloseBtn = document.getElementById('overviewCloseBtn');
 
 let current = 0;
 let touchStartX = 0;
+let overviewOpen = false;
 
 function buildDotNav() {
   slides.forEach((slide, index) => {
@@ -17,6 +21,62 @@ function buildDotNav() {
     dot.addEventListener('click', () => goToSlide(index));
     dotNav.append(dot);
   });
+}
+
+function buildOverviewList() {
+  if (!overviewList) return;
+
+  overviewList.innerHTML = '';
+
+  slides.forEach((slide, index) => {
+    const item = document.createElement('button');
+    item.type = 'button';
+    item.className = 'overview-item';
+    item.setAttribute('aria-label', `Go to slide ${index + 1}: ${slide.dataset.title || 'Untitled'}`);
+    item.addEventListener('click', () => {
+      goToSlide(index);
+      closeOverview();
+    });
+
+    item.innerHTML = `
+      <span class="slide-number">${String(index + 1).padStart(2, '0')}</span>
+      <span class="slide-name">${slide.dataset.title || 'Untitled'}</span>
+      <span class="slide-summary">${slide.querySelector('h1, h2')?.textContent || 'Open this slide'}</span>
+    `;
+
+    overviewList.append(item);
+  });
+}
+
+function updateOverviewUi() {
+  if (!overviewOverlay || !overviewList) return;
+
+  overviewOverlay.classList.toggle('is-open', overviewOpen);
+  overviewOverlay.setAttribute('aria-hidden', overviewOpen ? 'false' : 'true');
+
+  Array.from(overviewList.children).forEach((item, index) => {
+    item.classList.toggle('is-current', index === current);
+  });
+}
+
+function openOverview() {
+  overviewOpen = true;
+  updateOverviewUi();
+  overviewCloseBtn?.focus();
+}
+
+function closeOverview() {
+  overviewOpen = false;
+  updateOverviewUi();
+}
+
+function toggleOverview() {
+  if (overviewOpen) {
+    closeOverview();
+    return;
+  }
+
+  openOverview();
 }
 
 function updateUi() {
@@ -34,6 +94,8 @@ function updateUi() {
   Array.from(dotNav.children).forEach((dot, index) => {
     dot.classList.toggle('active', index === current);
   });
+
+  updateOverviewUi();
 }
 
 function goToSlide(index) {
@@ -150,6 +212,20 @@ function bindInteractions() {
     const activeTag = document.activeElement?.tagName;
     if (activeTag === 'TEXTAREA' || activeTag === 'INPUT') return;
 
+    if (event.key === 'Escape' && overviewOpen) {
+      event.preventDefault();
+      closeOverview();
+      return;
+    }
+
+    if (event.key.toLowerCase() === 'o') {
+      event.preventDefault();
+      toggleOverview();
+      return;
+    }
+
+    if (overviewOpen) return;
+
     if (['ArrowRight', 'PageDown', ' '].includes(event.key)) {
       event.preventDefault();
       nextStep();
@@ -199,6 +275,14 @@ function bindInteractions() {
     });
   });
 
+  overviewOverlay?.addEventListener('click', (event) => {
+    if (event.target?.hasAttribute?.('data-overview-close')) {
+      closeOverview();
+    }
+  });
+
+  overviewCloseBtn?.addEventListener('click', closeOverview);
+
   fullscreenBtn?.addEventListener('click', async () => {
     if (!document.fullscreenElement) {
       await document.documentElement.requestFullscreen();
@@ -212,5 +296,6 @@ function bindInteractions() {
 }
 
 buildDotNav();
+buildOverviewList();
 bindInteractions();
 updateUi();

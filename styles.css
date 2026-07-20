@@ -148,6 +148,19 @@ body {
   pointer-events: auto;
 }
 
+.slide.cover {
+  text-align: center;
+}
+
+.slide.cover .lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slide.cover .pill-row {
+  justify-content: center;
+}
+
 .slide h1 {
   font-size: clamp(2rem, 5vw, 3.7rem);
   margin-top: 12px;
@@ -490,6 +503,101 @@ button:hover {
   transform: scale(1.2);
   background: var(--accent-a);
   box-shadow: 0 0 12px var(--accent-a);
+}
+
+.overview-overlay {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 40;
+}
+
+.overview-overlay.is-open {
+  display: flex;
+}
+
+.overview-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(1, 6, 10, 0.74);
+  backdrop-filter: blur(10px);
+}
+
+.overview-panel {
+  position: relative;
+  width: min(960px, calc(100vw - 32px));
+  max-height: min(82vh, 780px);
+  overflow: auto;
+  padding: 22px;
+  border-radius: 22px;
+  border: 1px solid rgba(157, 185, 202, 0.24);
+  background: rgba(7, 18, 26, 0.96);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.overview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.overview-header h2 {
+  margin: 4px 0 0;
+}
+
+.overview-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.overview-item {
+  min-height: 104px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(157, 185, 202, 0.22);
+  background: rgba(9, 22, 31, 0.8);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.overview-item:hover,
+.overview-item:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(0, 225, 255, 0.5);
+  background: rgba(13, 31, 44, 0.92);
+}
+
+.overview-item.is-current {
+  border-color: rgba(125, 255, 161, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(125, 255, 161, 0.25);
+}
+
+.overview-item .slide-number {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--accent-a);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+}
+
+.overview-item .slide-name {
+  display: block;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.overview-item .slide-summary {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .flyer-badge {

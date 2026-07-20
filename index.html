@@ -29,7 +29,7 @@
     </header>
 
     <main class="deck" id="deck" aria-live="polite">
-      <section class="slide active" data-title="Welcome">
+      <section class="slide active cover" data-title="Welcome">
         <p class="eyebrow">Interactive Workshop</p>
         <h1>How to Talk to AI So It Can Help You Better</h1>
         <p class="lead">Presented by Joe Dwyer, PhD.</p>
@@ -319,6 +319,20 @@
     </a>
 
     <nav id="dotNav" class="dot-nav" aria-label="Slide navigation"></nav>
+
+    <div id="overviewOverlay" class="overview-overlay" aria-hidden="true">
+      <div class="overview-backdrop" data-overview-close></div>
+      <section class="overview-panel" role="dialog" aria-modal="true" aria-labelledby="overviewTitle">
+        <div class="overview-header">
+          <div>
+            <p class="eyebrow">Overview</p>
+            <h2 id="overviewTitle">Choose a slide</h2>
+          </div>
+          <button id="overviewCloseBtn" class="ghost-btn" type="button">Close</button>
+        </div>
+        <div id="overviewList" class="overview-list"></div>
+      </section>
+    </div>
 
     <script src="script.js"></script>
   </body>
