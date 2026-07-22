@@ -319,6 +319,8 @@ function bindInteractions() {
 
   overviewCloseBtn?.addEventListener('click', closeOverview);
 
+  document.getElementById('overviewBtn')?.addEventListener('click', toggleOverview);
+
   fullscreenBtn?.addEventListener('click', async () => {
     if (!document.fullscreenElement) {
       await document.documentElement.requestFullscreen();
