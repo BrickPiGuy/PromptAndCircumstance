@@ -277,6 +277,31 @@ function bindInteractions() {
     scoreDebounceTimer = setTimeout(runEvaluation, 400);
   });
 
+  const iterLog = document.getElementById('iterationLog');
+  const iterSteps = [];
+
+  document.querySelectorAll('.iter-chip').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const instruction = chip.dataset.instruction;
+      if (chip.classList.contains('active')) {
+        chip.classList.remove('active');
+        const idx = iterSteps.indexOf(instruction);
+        if (idx !== -1) iterSteps.splice(idx, 1);
+      } else {
+        chip.classList.add('active');
+        iterSteps.push(instruction);
+      }
+      if (!iterLog) return;
+      if (iterSteps.length === 0) {
+        iterLog.innerHTML = '';
+        return;
+      }
+      iterLog.innerHTML = iterSteps
+        .map((step, i) => `<div class="iter-step"><span class="iter-num">${i + 1}.</span><span>${step}</span></div>`)
+        .join('');
+    });
+  });
+
   document.querySelectorAll('.reveal-answer-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const card = btn.closest('.mistake-card');

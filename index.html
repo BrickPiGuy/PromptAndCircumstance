@@ -223,14 +223,16 @@
           <span>Improve</span>
           <span>Finalize</span>
         </div>
-        <div class="chip-cloud">
-          <span>Shorter</span>
-          <span>More formal</span>
-          <span>More examples</span>
-          <span>Simpler language</span>
-          <span>Different audience</span>
-          <span>Add citations</span>
+        <p class="micro-note">Click a refinement to build your follow-up prompt:</p>
+        <div class="chip-cloud iteration-chips">
+          <button type="button" class="iter-chip" data-instruction="Now make it shorter.">Shorter</button>
+          <button type="button" class="iter-chip" data-instruction="Rewrite it in a more formal tone.">More formal</button>
+          <button type="button" class="iter-chip" data-instruction="Add two more real-world examples.">More examples</button>
+          <button type="button" class="iter-chip" data-instruction="Simplify the language for a general audience.">Simpler language</button>
+          <button type="button" class="iter-chip" data-instruction="Adjust this for a different audience: first-year college students.">Different audience</button>
+          <button type="button" class="iter-chip" data-instruction="Include citations or sources where appropriate.">Add citations</button>
         </div>
+        <div id="iterationLog" class="iteration-log" aria-live="polite"></div>
         <p class="highlight">Prompting is a conversation, not a one-shot command.</p>
       </section>
 

@@ -284,6 +284,57 @@ blockquote {
   padding: 7px 12px;
 }
 
+.iter-chip {
+  background: rgba(125, 255, 161, 0.1);
+  border: 1px solid rgba(125, 255, 161, 0.33);
+  color: #d9ffe8;
+  border-radius: 999px;
+  padding: 7px 14px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: background 0.2s, border-color 0.2s, transform 0.1s;
+}
+
+.iter-chip:hover {
+  background: rgba(125, 255, 161, 0.22);
+  border-color: rgba(125, 255, 161, 0.6);
+}
+
+.iter-chip.active {
+  background: rgba(125, 255, 161, 0.35);
+  border-color: #7dffa1;
+  color: #fff;
+  font-weight: 600;
+}
+
+.iteration-log {
+  margin-top: 10px;
+  min-height: 48px;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.iteration-log .iter-step {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 3px 0;
+  animation: fadeSlideIn 0.25s ease;
+}
+
+.iteration-log .iter-num {
+  color: #7dffa1;
+  font-weight: 600;
+  min-width: 22px;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .muted {
   color: var(--muted);
 }
