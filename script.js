@@ -261,9 +261,20 @@ function bindInteractions() {
   const scorePromptBtn = document.getElementById('scorePromptBtn');
   const promptInput = document.getElementById('promptInput');
 
-  scorePromptBtn?.addEventListener('click', () => {
+  let scoreDebounceTimer = null;
+
+  function runEvaluation() {
     const scores = evaluatePrompt(promptInput.value || '');
     renderScores(scores);
+  }
+
+  scorePromptBtn?.addEventListener('click', runEvaluation);
+
+  promptInput?.addEventListener('input', () => {
+    clearTimeout(scoreDebounceTimer);
+    const scoreBoard = document.getElementById('scoreBoard');
+    if (!scoreBoard || scoreBoard.innerHTML === '') return;
+    scoreDebounceTimer = setTimeout(runEvaluation, 400);
   });
 
   document.querySelectorAll('.reveal-answer-btn').forEach((btn) => {
