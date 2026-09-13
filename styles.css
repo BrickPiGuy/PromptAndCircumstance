@@ -405,6 +405,18 @@ button:hover {
   filter: brightness(1.08);
 }
 
+.lab-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.secondary-btn {
+  color: var(--text);
+  border: 1px solid rgba(157, 185, 202, 0.4);
+  background: rgba(157, 185, 202, 0.12);
+}
+
 .scoreboard {
   margin-top: 12px;
   display: grid;

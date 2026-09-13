@@ -259,6 +259,7 @@ function bindInteractions() {
   });
 
   const scorePromptBtn = document.getElementById('scorePromptBtn');
+  const clearPromptBtn = document.getElementById('clearPromptBtn');
   const promptInput = document.getElementById('promptInput');
 
   let scoreDebounceTimer = null;
@@ -274,6 +275,14 @@ function bindInteractions() {
   }
 
   scorePromptBtn?.addEventListener('click', runEvaluation);
+
+  clearPromptBtn?.addEventListener('click', () => {
+    clearTimeout(scoreDebounceTimer);
+    promptInput.value = '';
+    document.getElementById('scoreBoard').innerHTML = '';
+    promptInput.focus();
+    promptInput.setSelectionRange(0, 0);
+  });
 
   promptInput?.addEventListener('input', () => {
     clearTimeout(scoreDebounceTimer);
