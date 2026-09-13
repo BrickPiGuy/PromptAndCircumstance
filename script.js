@@ -264,8 +264,13 @@ function bindInteractions() {
   let scoreDebounceTimer = null;
 
   function runEvaluation() {
-    const scores = evaluatePrompt(promptInput.value || '');
-    renderScores(scores);
+    const prompt = promptInput?.value.trim() || '';
+    const scoreBoard = document.getElementById('scoreBoard');
+    if (!prompt) {
+      if (scoreBoard) scoreBoard.innerHTML = '';
+      return;
+    }
+    renderScores(evaluatePrompt(prompt));
   }
 
   scorePromptBtn?.addEventListener('click', runEvaluation);
@@ -273,7 +278,7 @@ function bindInteractions() {
   promptInput?.addEventListener('input', () => {
     clearTimeout(scoreDebounceTimer);
     const scoreBoard = document.getElementById('scoreBoard');
-    if (!scoreBoard || scoreBoard.innerHTML === '') return;
+    if (scoreBoard) scoreBoard.innerHTML = '';
     scoreDebounceTimer = setTimeout(runEvaluation, 400);
   });
 

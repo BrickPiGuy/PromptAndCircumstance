@@ -34,9 +34,9 @@
         <p class="eyebrow">Interactive Workshop</p>
         <h1>How to Talk to AI So It Can Help You Better</h1>
         <p class="lead">Presented by Joe Dwyer, PhD.</p>
-        <p class="lead">Prompting Essentials for beginners, with live demos and hands-on practice.</p>
+        <p class="lead">Prompting Essentials for software developers, with live demos and hands-on practice.</p>
         <div class="pill-row">
-          <span class="pill">Audience: AI Beginners</span>
+          <span class="pill">Audience: Software Developers</span>
           <span class="pill">Style: Demo + Activity</span>
         </div>
       </section>
@@ -60,7 +60,7 @@
           <li>Write clear prompts that get stronger outputs.</li>
           <li>Improve weak prompts through iteration.</li>
           <li>Recognize common prompting mistakes.</li>
-          <li>Apply prompting techniques across school, work, and coding.</li>
+          <li>Apply prompting techniques across planning, coding, testing, and operations.</li>
           <li>Use human judgment when AI is uncertain or wrong.</li>
         </ul>
         <p class="micro-note">Tip: Use arrows, spacebar, or on-screen controls to navigate.</p>
@@ -71,12 +71,12 @@
         <div class="split two">
           <article class="card danger">
             <h3>Bad Prompt</h3>
-            <p>Write something about cybersecurity.</p>
+            <p>Write something about caching.</p>
           </article>
           <article class="card success">
             <h3>Good Prompt</h3>
             <p>
-              Explain phishing to a first-year college student using a real-world example in less than
+              Explain cache invalidation to a backend developer using a concrete API example in less than
               200 words.
             </p>
           </article>
@@ -84,14 +84,13 @@
         <div class="split two">
           <article class="card danger">
             <h3>Bad Prompt</h3>
-            <p>Generate a dosage calculation worksheet.</p>
+            <p>Fix this bug.</p>
           </article>
           <article class="card success">
             <h3>Good Prompt</h3>
             <p>
-              Create a dosage calculation practice worksheet for second-year nursing students covering
-              weight-based IV medications, with 10 problems ranging from beginner to advanced difficulty,
-              and include an answer key.
+              Diagnose this failing Python function. Explain the root cause, propose a minimal fix, and
+              include focused pytest cases for the happy path and the edge case where the input is empty.
             </p>
           </article>
         </div>
@@ -109,7 +108,7 @@
           <span>Chat assistant request</span>
         </div>
         <div class="card neutral">
-          <p>AI is like a very knowledgeable intern: it only works with what you ask for.</p>
+          <p>AI is like a very knowledgeable pair programmer: it only works with what you ask for.</p>
           <p>Better instructions -> better outputs.</p>
         </div>
       </section>
@@ -125,8 +124,8 @@
           <article class="card">
             <h3>Prompt 2</h3>
             <p>
-              Explain relational databases to first-year software development students using one analogy
-              and one real-world example.
+              Compare PostgreSQL and Redis for a team choosing storage for a high-traffic session service.
+              Recommend one, name the tradeoffs, and include a short decision table.
             </p>
             <p class="muted">Result: Contextual, useful, teachable.</p>
           </article>
@@ -134,15 +133,15 @@
         <div class="split two">
           <article class="card danger">
             <h3>Prompt 3</h3>
-            <p>Write a patient discharge summary.</p>
+            <p>Review my pull request.</p>
             <p class="muted">Result: Generic and unusable.</p>
           </article>
           <article class="card success">
             <h3>Prompt 4</h3>
             <p>
-              Write a discharge summary for a 68-year-old patient recovering from a mild ischemic stroke.
-              Include follow-up instructions, prescribed medications, dietary restrictions, and warning
-              signs that should prompt an ER visit. Use plain language suitable for the patient and family.
+              Review this pull request for correctness and regression risks. Focus on the authentication
+              middleware, identify concrete findings with file and line references, and suggest focused
+              tests. Do not comment on formatting unless it affects behavior.
             </p>
             <p class="muted">Result: Specific, safe, and actionable.</p>
           </article>
@@ -161,7 +160,7 @@
           <article class="task-card">
             <h3>A</h3>
             <h4>Audience</h4>
-            <p>Executive, student, child, customer, developer.</p>
+            <p>Backend developer, frontend developer, SRE, product manager, reviewer.</p>
           </article>
           <article class="task-card">
             <h3>S</h3>
@@ -184,10 +183,15 @@
       <section class="slide" data-title="Exercise 1">
         <h2>Interactive Exercise #1: Prompt Rewriter</h2>
         <p>Improve this weak prompt:</p>
-        <p class="prompt-inline">"Make a presentation."</p>
+        <p class="prompt-inline">"Make this code better."</p>
         <div class="lab">
           <label for="promptInput">Your improved prompt</label>
-          <textarea id="promptInput" rows="5" placeholder="Write your improved prompt here..."></textarea>
+          <textarea
+            id="promptInput"
+            rows="5"
+            placeholder="Write your improved prompt here..."
+            autocomplete="off"
+          ></textarea>
           <button id="scorePromptBtn" type="button">Evaluate With T-A-S-K-S</button>
         </div>
         <div id="scoreBoard" class="scoreboard" aria-live="polite"></div>
@@ -199,17 +203,18 @@
         <div class="reveal-stack">
           <article class="card reveal-item is-visible">
             <h3>Version 1</h3>
-            <p>Create a presentation on phishing.</p>
+            <p>Document this API.</p>
           </article>
           <article class="card reveal-item">
             <h3>Version 2</h3>
-            <p>Create a 10-slide presentation explaining phishing attacks to first-year cybersecurity students.</p>
+            <p>Create API documentation for our user profile endpoint for frontend developers.</p>
           </article>
           <article class="card reveal-item">
             <h3>Version 3</h3>
             <p>
-              Create a 10-slide presentation explaining phishing attacks to first-year cybersecurity students.
-              Include one interactive activity, one case study, speaker notes, and a quiz.
+              Create API documentation for our user profile endpoint for frontend developers. Include the
+              HTTP method, authentication requirements, request and response JSON, validation errors, one
+              curl example, and notes about backward compatibility.
             </p>
           </article>
         </div>
@@ -229,9 +234,9 @@
           <button type="button" class="iter-chip" data-instruction="Now make it shorter.">Shorter</button>
           <button type="button" class="iter-chip" data-instruction="Rewrite it in a more formal tone.">More formal</button>
           <button type="button" class="iter-chip" data-instruction="Add two more real-world examples.">More examples</button>
-          <button type="button" class="iter-chip" data-instruction="Simplify the language for a general audience.">Simpler language</button>
-          <button type="button" class="iter-chip" data-instruction="Adjust this for a different audience: first-year college students.">Different audience</button>
-          <button type="button" class="iter-chip" data-instruction="Include citations or sources where appropriate.">Add citations</button>
+          <button type="button" class="iter-chip" data-instruction="Simplify the language for a new developer joining the team.">Simpler language</button>
+          <button type="button" class="iter-chip" data-instruction="Adjust this for a different audience: the on-call SRE team.">Different audience</button>
+          <button type="button" class="iter-chip" data-instruction="Include links to relevant files, tests, or official documentation where appropriate.">Add references</button>
         </div>
         <div id="iterationLog" class="iteration-log" aria-live="polite"></div>
         <p class="highlight">Prompting is a conversation, not a one-shot command.</p>
@@ -240,11 +245,11 @@
       <section class="slide" data-title="Five Patterns">
         <h2>Five Prompt Patterns Everyone Should Know</h2>
         <div class="pattern-grid">
-          <article class="card"><h3>Explain</h3><p>Explain recursion using a pizza analogy.</p></article>
-          <article class="card"><h3>Summarize</h3><p>Summarize this article in five bullet points.</p></article>
-          <article class="card"><h3>Role Prompting</h3><p>Act as a hiring manager.</p></article>
-          <article class="card"><h3>Transformation</h3><p>Rewrite this email professionally.</p></article>
-          <article class="card"><h3>Brainstorm</h3><p>Generate ten project ideas for beginner programmers.</p></article>
+          <article class="card"><h3>Explain</h3><p>Explain event loops to a developer who knows synchronous JavaScript.</p></article>
+          <article class="card"><h3>Summarize</h3><p>Summarize this incident timeline in five bullets and call out the trigger.</p></article>
+          <article class="card"><h3>Role Prompting</h3><p>Act as a staff engineer reviewing this architecture proposal.</p></article>
+          <article class="card"><h3>Transformation</h3><p>Convert this OpenAPI schema into TypeScript types.</p></article>
+          <article class="card"><h3>Brainstorm</h3><p>Generate ten practical integration tests for this checkout service.</p></article>
         </div>
       </section>
 
@@ -257,22 +262,22 @@
             <p class="answer"></p>
           </article>
           <article class="mistake-card" data-answer="Too broad for one response. Narrow the scope.">
-            <p>"Teach me programming."</p>
+            <p>"Teach me Kubernetes."</p>
             <button type="button" class="reveal-answer-btn">Reveal Problem</button>
             <p class="answer"></p>
           </article>
           <article class="mistake-card" data-answer="Missing constraints. Define length, format, and tone.">
-            <p>"Write an email to my class."</p>
+            <p>"Write a commit message."</p>
             <button type="button" class="reveal-answer-btn">Reveal Problem</button>
             <p class="answer"></p>
           </article>
           <article class="mistake-card" data-answer="Too many goals at once. Split into steps.">
-            <p>"Explain cloud, code an app, and make slides in one response."</p>
+            <p>"Explain this outage, fix the service, and write the postmortem in one response."</p>
             <button type="button" class="reveal-answer-btn">Reveal Problem</button>
             <p class="answer"></p>
           </article>
-          <article class="mistake-card" data-answer="No patient context, no audience, no purpose. A nurse, a patient, and a physician all need different explanations.">
-            <p>"Explain diabetes to me."</p>
+          <article class="mistake-card" data-answer="No codebase context, audience, or goal. A new contributor, reviewer, and on-call engineer need different explanations.">
+            <p>"Explain this code to me."</p>
             <button type="button" class="reveal-answer-btn">Reveal Problem</button>
             <p class="answer"></p>
           </article>
@@ -299,13 +304,13 @@
       <section class="slide" data-title="Everyday Uses">
         <h2>Everyday Prompting + Prompt Olympics</h2>
         <div class="domain-grid">
-          <p><strong>Students:</strong> study guides, quiz generation</p>
-          <p><strong>Faculty:</strong> rubrics, feedback drafts</p>
-          <p><strong>Business:</strong> emails, reports</p>
-          <p><strong>Software:</strong> docs, debugging, tests</p>
-          <p><strong>Cybersecurity:</strong> logs, incident summaries</p>
-          <p><strong>Marketing:</strong> campaign ideas, posts</p>
-          <p><strong>Medical:</strong> patient education, discharge summaries, clinical case studies</p>
+          <p><strong>Planning:</strong> user stories, acceptance criteria</p>
+          <p><strong>Implementation:</strong> scaffolding, refactors, code explanations</p>
+          <p><strong>Testing:</strong> unit tests, fixtures, edge cases</p>
+          <p><strong>Code review:</strong> regression risks, maintainability checks</p>
+          <p><strong>Operations:</strong> log analysis, incident summaries</p>
+          <p><strong>Documentation:</strong> API references, runbooks, release notes</p>
+          <p><strong>Architecture:</strong> tradeoff analysis, migration plans, ADR drafts</p>
         </div>
         <p class="micro-note">Challenge: teams have 3 minutes to write the best prompt for a scenario.</p>
       </section>
@@ -334,7 +339,7 @@
             </ol>
           </article>
         </div>
-        <blockquote>Closing activity: "How would you improve this prompt?" -> "Tell me about AI."</blockquote>
+        <blockquote>Closing activity: "How would you improve this prompt?" -> "Fix the login bug."</blockquote>
       </section>
     </main>
 
